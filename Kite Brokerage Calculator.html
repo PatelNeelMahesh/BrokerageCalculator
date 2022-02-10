@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>Kite Brokerage Calculator</title>
+
+    <link rel="stylesheet" href="./bundle.min.css">
+
+</head>
+
+	<body data-new-gr-c-s-check-loaded="14.1047.0" data-gr-ext-installed="" style="overflow: auto;">
+  
+		<main class="content parent-content">
+							
+		    <main class="content brokerage-calculator">
+    
+        <section class="brokerage-calc-sections container border-bottom">
+        <div>
+            <div id="mytabs" class="tabs-container tinytabs">
+                <div class="section" id="equities" style="display: block;">
+                    <div class="row between">
+                        
+                        <!-- Intraday ETF -->
+                        <div class="brokerage-columns column equity-calcs calc-wrapper" id="intraday-etf-equity-calc">
+    <h5 class="equity-head">Intraday BeES/ETF</h5>
+    <div class="row calc-inputs around">
+        <div class="four columns brokerage-calculator-input">
+            <label>BUY</label>
+            <input type="number" min="0" title="Buy Price" value="100" oninput="cal_etf_intra()" class="intra intra_etf_bp">
+        </div>
+        <div class="four columns brokerage-calculator-input">
+            <label>SELL</label>
+            <input type="number" min="0" title="Sell Price" value="100" oninput="cal_etf_intra()" class="intra intra_etf_sp">
+        </div>
+        <div class="four columns brokerage-calculator-input">
+            <label>QUANTITY</label>
+            <input type="number" min="0" title="Quantity" value="400" oninput="cal_etf_intra()" class="intra intra_etf_qty">
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns equity-radio text-center">
+            <input id="radio31" type="radio" name="listing-market3" value="NSE" onchange="cal_etf_intra()" class="intra_nse_etf intra" checked="">
+            <label for="radio31">NSE</label>
+        </div>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Turnover</label>
+        <span class="five columns val" id="intra_etf_turn">840000</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">Brokerage</label>
+        <span class="five columns val" id="intra_etf_brokerage">40</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">STT total</label>
+        <span class="five columns val" id="intra_etf_stt">110</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">Exchange txn charge</label>
+        <span class="five columns val" id="intra_etf_etc">28.98</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">Clearing charge</label>
+        <span class="five columns val" id="intra_etf_cc">0</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">GST</label>
+        <span class="five columns val" id="intra_etf_st">12.42</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">SEBI charges</label>
+        <span class="five columns val" id="etf_sebi">0.84</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">Stamp duty</label>
+        <span class="five columns val" id="etf_stamp_duty">12</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">Total tax and charges</label>
+        <span class="five columns val" id="intra_etf_total">204.24</span>
+    </div>
+    <div class="row equity-list valuation-block equity-list">
+        <label class="seven columns">Points to breakeven</label>
+        <span class="five columns val" id="intra_etf_breakeven">0.51</span>
+    </div>
+    <div class="row net-profit" id="intra_profit">
+        <label class="six columns">Net P&amp;L</label>
+        <span class="six columns profit pos" id="intra_etf_pnl">39795.76</span>
+    </div>
+                        </div>
+
+                        <!-- Delivery ETF -->
+                        <div class="brokerage-columns column equity-calcs calc-wrapper" id="delivery-etf-equity-calc">
+    <h5 class="equity-head">Delivery BeES/ETF</h5>
+    <div class="row calc-inputs around">
+        <div class="four columns brokerage-calculator-input">
+            <label>BUY</label>
+            <input type="number" min="0" title="Buy Price" oninput="cal_etf_delivery()" value="100" class="delivery del_etf_bp">
+        </div>
+        <div class="four columns brokerage-calculator-input">
+            <label>SELL</label>
+            <input type="number" min="0" title="Sell Price" oninput="cal_etf_delivery()" value="100" class="delivery del_etf_sp">
+        </div>
+        <div class="four columns brokerage-calculator-input">
+            <label>QUANTITY</label>
+            <input type="number" min="0" title="Quantity" oninput="cal_etf_delivery()" value="400" class="delivery del_etf_qty">
+        </div>
+    </div>
+    <div class="row">
+        <div class="six columns equity-radio text-center">
+            <input id="radio41" type="radio" name="listing-market4" onchange="cal_etf_delivery()" value="NSE" class="del_etf_nse delivery" checked="">
+            <label for="radio41">NSE</label>
+        </div>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Turnover</label>
+        <span class="five columns" id="del_etf_turn">840000</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Brokerage</label>
+        <span class="five columns" id="del_etf_brokerage">0</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">STT total</label>
+        <span class="five columns" id="del_etf_stt">840</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Exchange txn charge</label>
+        <span class="five columns" id="del_etf_etc">28.98</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Clearing charge</label>
+        <span class="five columns" id="del_etf_cc">0</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">GST</label>
+        <span class="five columns" id="del_etf_st">5.22</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">SEBI charges</label>
+        <span class="five columns" id="etf_sebi_delivery">0.84</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Stamp duty</label>
+        <span class="five columns" id="etf_stamp_duty_delivery">60</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Total tax and charges</label>
+        <span class="five columns" id="del_etf_total">935.04</span>
+    </div>
+    <div class="row valuation-block equity-list">
+        <label class="seven columns">Points to breakeven</label>
+        <span class="five columns" id="del_etf_breakeven">2.34</span>
+    </div>
+    <div class="row net-profit" id="del_etf_profit">
+        <label class="six columns">Net P&amp;L</label>
+        <span class="six columns profit pos" id="del_etf_pnl">39064.96</span>
+    </div>
+                        </div>
+
+                        <!-- Intraday Equity -->
+                        <div class="brokerage-columns column equity-calcs calc-wrapper" id="intraday-equity-calc">
+                            <h5 class="equity-head">Intraday Equity</h5>
+                            <div class="row calc-inputs around">
+                                <div class="four columns brokerage-calculator-input">
+                                    <label>BUY</label>
+                                    <input type="number" min="0" title="Buy Price" value="100" oninput="cal_intra()" class="intra intra_bp">
+                                </div>
+                                <div class="four columns brokerage-calculator-input">
+                                    <label>SELL</label>
+                                    <input type="number" min="0" title="Sell Price" value="100" oninput="cal_intra()" class="intra intra_sp">
+                                </div>
+                                <div class="four columns brokerage-calculator-input">
+                                    <label>QUANTITY</label>
+                                    <input type="number" min="0" title="Quantity" value="400" oninput="cal_intra()" class="intra intra_qty">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns equity-radio text-center">
+                                    <input id="radio11" type="radio" name="listing-market1" value="NSE" onchange="cal_intra()" class="intra_nse intra" checked="">
+                                    <label for="radio11">NSE</label>
+                                </div>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Turnover</label>
+                                <span class="five columns val" id="intra_turn">840000</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">Brokerage</label>
+                                <span class="five columns val" id="intra_brokerage">40</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">STT total</label>
+                                <span class="five columns val" id="intra_stt">110</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">Exchange txn charge</label>
+                                <span class="five columns val" id="intra_etc">28.98</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">Clearing charge</label>
+                                <span class="five columns val" id="intra_cc">0</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">GST</label>
+                                <span class="five columns val" id="intra_st">12.42</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">SEBI charges</label>
+                                <span class="five columns val" id="sebi">0.84</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">Stamp duty</label>
+                                <span class="five columns val" id="stamp_duty">12</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">Total tax and charges</label>
+                                <span class="five columns val" id="intra_total">204.24</span>
+                            </div>
+                            <div class="row equity-list valuation-block equity-list">
+                                <label class="seven columns">Points to breakeven</label>
+                                <span class="five columns val" id="intra_breakeven">0.51</span>
+                            </div>
+                            <div class="row net-profit" id="intra_profit">
+                                <label class="six columns">Net P&amp;L</label>
+                                <span class="six columns profit pos" id="intra_pnl">39795.76</span>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Euity -->
+                        <div class="brokerage-columns column equity-calcs calc-wrapper" id="delivery-equity-calc">
+                            <h5 class="equity-head">Delivery Equity</h5>
+                            <div class="row calc-inputs around">
+                                <div class="four columns brokerage-calculator-input">
+                                    <label>BUY</label>
+                                    <input type="number" min="0" title="Buy Price" oninput="cal_delivery()" value="100" class="delivery del_bp">
+                                </div>
+                                <div class="four columns brokerage-calculator-input">
+                                    <label>SELL</label>
+                                    <input type="number" min="0" title="Sell Price" oninput="cal_delivery()" value="100" class="delivery del_sp">
+                                </div>
+                                <div class="four columns brokerage-calculator-input">
+                                    <label>QUANTITY</label>
+                                    <input type="number" min="0" title="Quantity" oninput="cal_delivery()" value="400" class="delivery del_qty">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="six columns equity-radio text-center">
+                                    <input id="radio21" type="radio" name="listing-market2" onchange="cal_delivery()" value="NSE" class="del_nse delivery" checked="">
+                                    <label for="radio21">NSE</label>
+                                </div>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Turnover</label>
+                                <span class="five columns" id="del_turn">840000</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Brokerage</label>
+                                <span class="five columns" id="del_brokerage">0</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">STT total</label>
+                                <span class="five columns" id="del_stt">840</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Exchange txn charge</label>
+                                <span class="five columns" id="del_etc">28.98</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Clearing charge</label>
+                                <span class="five columns" id="del_cc">0</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">GST</label>
+                                <span class="five columns" id="del_st">5.22</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">SEBI charges</label>
+                                <span class="five columns" id="sebi_delivery">0.84</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Stamp duty</label>
+                                <span class="five columns" id="stamp_duty_delivery">60</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Total tax and charges</label>
+                                <span class="five columns" id="del_total">935.04</span>
+                            </div>
+                            <div class="row valuation-block equity-list">
+                                <label class="seven columns">Points to breakeven</label>
+                                <span class="five columns" id="del_breakeven">2.34</span>
+                            </div>
+                            <div class="row net-profit" id="del_profit">
+                                <label class="six columns">Net P&amp;L</label>
+                                <span class="six columns profit pos" id="del_pnl">39064.96</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </section>
+        
+            </main>
+					
+		</main>
+    </body>    
+</html>
+
+<script type="text/javascript" src="./brokerage.js"></script>
